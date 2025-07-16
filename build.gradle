@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'lsfzk'           // Your group name (same as your package base)
+version = '1.0.0'         // Update as needed for new releases
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17   // Use your Java version
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // Add only minimal dependencies needed for your event POJOs.
+    // Avoid spring-boot, kafka, or microservice dependencies here.
+    // Example (if you use Lombok in your event classes):
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            // Publishes compiled code and sources for IDE support
+            from components.java
+        }
+    }
+    // The default repository for "publishToMavenLocal"
+    // No extra config needed for local publishing
+}
