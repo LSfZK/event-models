@@ -3,5 +3,6 @@ package lsfzk.events;
 public record PromoteResponseEvent(
         Long userId,
         Long requestId,
-        Long adminId
+        Long adminId,
+        boolean approved
 ) { }
