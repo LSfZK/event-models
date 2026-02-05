@@ -4,5 +4,7 @@ public record BusinessRegistrationEvent(
         Long userId,
         Long registrationId,
         String userNickname,
-        String businessName
+        String businessName,
+        String businessNumber, // Tax ID
+        String ownerPhoneNumber
 ) {}
